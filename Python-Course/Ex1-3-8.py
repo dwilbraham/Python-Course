@@ -1,8 +1,10 @@
 import time
 import timeit
+import functools
 
 def time_call(timesRun):
     def _time_call(func):
+        @functools.wraps(func)
         def __time_call(*args, **kwargs):
             start = timeit.default_timer()
             ret = func(*args, **kwargs)
@@ -13,8 +15,9 @@ def time_call(timesRun):
 
 @time_call(2)
 def sleep_for(timeToSleep):
+    """Sleeps for the given number of seconds"""
     time.sleep(timeToSleep)
 
 if __name__ == '__main__':
-    print (timeit.default_timer())
+#    print (timeit.default_timer())
     sleep_for(5)
