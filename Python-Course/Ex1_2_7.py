@@ -17,7 +17,7 @@ def count_in(start, step=1):
         if ret is not None:
             step = ret
         x += step
-        ++i
+        i =+ 1
 
 if __name__ == '__main__':
     c = count_in(10, 5)
