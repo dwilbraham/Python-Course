@@ -1,3 +1,5 @@
+*.pyc
+*.pyo
 /Ex1_4_3.output
 /Ex1_4_3.output2
 /threads
