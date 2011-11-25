@@ -1,7 +1,7 @@
 import lxml.etree as ET
 from lxml.builder import E as B
 
-def buildPerson(firstname, lastname, title, address, street, zipcode, city, country, day, month, year):
+def buildPerson(personid ,firstname, lastname, title, address, street, zipcode, city, country, day, month, year):
     root = B.person(
                     B.firstname(firstname),
                     B.lastname(lastname),
@@ -16,14 +16,16 @@ def buildPerson(firstname, lastname, title, address, street, zipcode, city, coun
                                B.day(day),
                                B.month(month),
                                B.year(year)
-                               )
+                               ),
+                    id=personid
                     )
     return root
 
 def buildPersonList(numberOfPersons):
     personList = B.personlist()
-    for _ in xrange(numberOfPersons):
+    for i in xrange(numberOfPersons):
         arglist = []
+        arglist.append(str(i))
         for j in xrange(11):
             arglist.append(str(j))
         personList.append(buildPerson(*arglist))
