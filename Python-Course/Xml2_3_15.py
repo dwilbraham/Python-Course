@@ -7,6 +7,7 @@ if __name__ == '__main__':
     
     find_city = ET.XPath('/cityindex/entry/region')
     regionList = [el.text for el in find_city(tree)]
+    regionList.sort()
     regionCount = {}
     for i in regionList:
         regionCount.setdefault(i, 0)
