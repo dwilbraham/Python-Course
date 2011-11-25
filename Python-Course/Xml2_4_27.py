@@ -1,14 +1,14 @@
 import lxml.etree as ET
 from lxml.builder import E as B
 
-def buildPerson(firstname, lastname, title, address, street, zip, city, country, day, month, year):
+def buildPerson(firstname, lastname, title, address, street, zipcode, city, country, day, month, year):
     root = B.person(
                     B.firstname(firstname),
                     B.lastname(lastname),
                     B.title(title),
                     B.address(
                               B.street(street),
-                              B.zip(zip),
+                              B.zip(zipcode),
                               B.city(city),
                               B.country(country)
                               ),
